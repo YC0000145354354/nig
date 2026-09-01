@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rotcart konfigurator" />
+    <meta name="theme-color" content="#0175C2" />
+    <title>Rotcart konfigurator</title>
+    <link rel="manifest" href="manifest.json" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background: #f5f7fb;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #1d4ed8;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .spinner {
+        width: 36px;
+        height: 36px;
+        border: 4px solid rgba(29, 78, 216, 0.2);
+        border-top-color: #1d4ed8;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+        margin-right: 12px;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">
+      <div class="spinner"></div>
+      <span>Loading app...</span>
+    </div>
+
+    <script src="flutter.js" defer></script>
+    <script>
+      window.addEventListener('load', function () {
+        _flutter.loader.loadEntrypoint({
+          serviceWorker: {
+            serviceWorkerVersion: null,
+          },
+          onEntrypointLoaded: function (engineInitializer) {
+            engineInitializer.initializeEngine().then(function () {
+              return engineInitializer.runApp();
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
