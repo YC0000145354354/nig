@@ -1,72 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <base href="/">
     <meta charset="UTF-8" />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Rotcart konfigurator" />
-    <meta name="theme-color" content="#0175C2" />
-    <title>Rotcart konfigurator</title>
+    <meta name="description" content="Rotcart configurator" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Rotcart Configurator</title>
     <link rel="manifest" href="manifest.json" />
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        font-family: Arial, sans-serif;
-        background: #f5f7fb;
-      }
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      #loading {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        color: #1d4ed8;
-        font-size: 18px;
-        font-weight: 600;
-      }
-      .spinner {
-        width: 36px;
-        height: 36px;
-        border: 4px solid rgba(29, 78, 216, 0.2);
-        border-top-color: #1d4ed8;
-        border-radius: 50%;
-        animation: spin 0.9s linear infinite;
-        margin-right: 12px;
-      }
-      @keyframes spin {
-        to { transform: rotate(360deg); }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="loading">
-      <div class="spinner"></div>
-      <span>Loading app...</span>
+    <div class="container">
+      <header>
+        <nav>
+          <div class="brand">
+            <div class="logo">R</div>
+            <span>Rotcart</span>
+          </div>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#status">Status</a></li>
+          </ul>
+          <button class="secondary">Contact</button>
+        </nav>
+      </header>
+
+      <main class="hero" id="overview">
+        <div class="hero-copy">
+          <div class="badge">System online</div>
+          <h1>Configuring the future of mobility.</h1>
+          <p>
+            Rotcart configurator is ready to support setup, diagnostics, and product configuration
+            workflows in a streamlined and modern interface.
+          </p>
+          <div class="hero-actions">
+            <button class="primary">Launch setup</button>
+            <button class="secondary">View details</button>
+          </div>
+        </div>
+
+        <aside class="card status-panel" id="status">
+          <div class="status-row">
+            <span>Service status</span>
+            <strong>Online</strong>
+          </div>
+          <div class="status-row">
+            <span>Build</span>
+            <strong>v1.0.0</strong>
+          </div>
+          <div class="status-row">
+            <span>Connection</span>
+            <strong>Stable</strong>
+          </div>
+          <div class="status-row">
+            <span>Region</span>
+            <strong>SE</strong>
+          </div>
+        </aside>
+      </main>
+
+      <section id="features">
+        <div class="mini-grid">
+          <article class="feature">
+            <h3>Setup</h3>
+            <p>Configure product defaults, dashboards, and installer flows with a clear and stable interface.</p>
+          </article>
+          <article class="feature">
+            <h3>Diagnostics</h3>
+            <p>Monitor connection health, version states, and device status from a single environment.</p>
+          </article>
+          <article class="feature">
+            <h3>Operations</h3>
+            <p>Keep your configuration workflow smooth, understandable, and ready for production usage.</p>
+          </article>
+        </div>
+      </section>
     </div>
 
-    <script src="flutter.js" defer></script>
-    <script>
-      window.addEventListener('load', function () {
-        _flutter.loader.loadEntrypoint({
-          serviceWorker: {
-            serviceWorkerVersion: null,
-          },
-          onEntrypointLoaded: function (engineInitializer) {
-            engineInitializer.initializeEngine().then(function () {
-              return engineInitializer.runApp();
-            });
-          }
-        });
-      });
-    </script>
+    <footer>Rotcart configurator · All systems operational</footer>
   </body>
 </html>
